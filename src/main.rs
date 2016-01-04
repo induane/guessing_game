@@ -6,7 +6,9 @@ use std::cmp::Ordering;
 
 
 fn main() {
-    // To be fair we'll generate the number before asking ... so we can't cheat ;-)
+    println!("########################################");
+    println!("# The 'you wish you were psychic' Game #");
+    println!("########################################\n\n");
 
     println!("Enter the upper bounds for the game:");
     let mut upper_bound = String::new();
