@@ -1,11 +1,39 @@
 extern crate rand;
 
-use std::io;
+// use std::io;
 use rand::Rng;
 use std::cmp::Ordering;
-
+use std::io::{self, Write};
 
 fn main() {
+    game();
+
+    loop {
+        println!("\nDo you want to play again? [y/n]");
+        let mut response = String::new();
+        io::stdin().read_line(&mut response)
+            .ok()
+            .expect("Uhh what did you say??");
+
+        if response.trim() == "N" {
+            break;
+        }
+        if response.trim() == "n" {
+            break;
+        }
+        if response.trim() == "no" {
+            break;
+        }
+        if response.trim() == "No" {
+            break;
+        }
+        game();
+    }
+
+}
+
+fn game() {
+    clear_screen();
     println!("########################################");
     println!("# The 'you wish you were psychic' Game #");
     println!("########################################\n\n");
@@ -64,4 +92,10 @@ fn main() {
             }
         }
     }
+}
+
+
+// Clear the terminal window
+fn clear_screen() {
+    io::stdout().write_all(b"\x1b[2J\x1b[1;1H").unwrap();
 }
